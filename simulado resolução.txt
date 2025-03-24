@@ -1,0 +1,83 @@
+1)
+class Pessoa {
+  double _peso;
+  double _altura;
+
+  Pessoa(this._peso, this._altura);
+
+  // Getters e Setters compactados
+  double get peso => _peso;
+  set peso(double peso) => _peso = peso;
+
+  double get altura => _altura;
+  set altura(double altura) => _altura = altura;
+
+  String calcularImc() {
+    double imc = _peso / (_altura * _altura);
+    if (imc < 18.5) {
+      return "IMC: ${imc.toStringAsFixed(2)} - Abaixo do peso";
+    } else if (imc >= 18.5 && imc < 24.9) {
+      return "IMC: ${imc.toStringAsFixed(2)} - Peso normal";
+    } else if (imc >= 25 && imc < 29.9) {
+      return "IMC: ${imc.toStringAsFixed(2)} - Sobrepeso";
+    } else {
+      return "IMC: ${imc.toStringAsFixed(2)} - Obesidade";
+    }
+  }
+}
+
+void main() {
+  // Testando com exemplos
+  var pessoas = [
+    Pessoa(50, 1.6),
+    Pessoa(70, 1.75),
+    Pessoa(85, 1.7),
+    Pessoa(100, 1.8),
+  ];
+
+  for (var i = 0; i < pessoas.length; i++) {
+    print("Pessoa ${i + 1}: ${pessoas[i].calcularImc()}");
+  }
+}
+
+2)
+class Imovel {
+  double _areaConstruida;
+
+  Imovel(this._areaConstruida);
+
+  // Getters e Setters compactados
+  double get areaConstruida => _areaConstruida;
+  set areaConstruida(double area) => _areaConstruida = area;
+
+  String calcularIptu() {
+    if (_areaConstruida == 0) {
+      return "IPTU: R\$ 300";
+    } else if (_areaConstruida <= 50) {
+      return "IPTU: R\$ 500";
+    } else if (_areaConstruida <= 100) {
+      return "IPTU: R\$ 800";
+    } else if (_areaConstruida <= 200) {
+      return "IPTU: R\$ 1.200";
+    } else {
+      return "IPTU: R\$ 2.000";
+    }
+  }
+}
+
+void main() {
+  // Testando com exemplos
+  var imoveis = [
+    Imovel(0),
+    Imovel(45),
+    Imovel(75),
+    Imovel(150),
+    Imovel(250),
+  ];
+
+  for (var i = 0; i < imoveis.length; i++) {
+    print("Imóvel ${i + 1}: ${imoveis[i].calcularIptu()}");
+  }
+}
+
+

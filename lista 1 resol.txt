@@ -1,0 +1,117 @@
+1)
+abstract class Funcionario {
+  double salario();
+}
+
+class Gerente extends Funcionario {
+  @override
+  double salario() {
+    return 8000.0; // Salário fixo do gerente
+  }
+}
+
+class Assistente extends Funcionario {
+  @override
+  double salario() {
+    return 4000.0; // Salário fixo do assistente
+  }
+}
+
+void mainFuncionario() {
+  Funcionario gerente = Gerente();
+  Funcionario assistente = Assistente();
+
+  print("Salário do Gerente: R\$ ${gerente.salario()}");
+  print("Salário do Assistente: R\$ ${assistente.salario()}");
+}
+
+2)
+abstract class Produto {
+  double precoFinal();
+}
+
+class ProdutoFisico extends Produto {
+  double precoBase;
+  double custoEnvio;
+
+  ProdutoFisico(this.precoBase, this.custoEnvio);
+
+  @override
+  double precoFinal() {
+    return precoBase + custoEnvio;
+  }
+}
+
+class ProdutoDigital extends Produto {
+  double precoBase;
+
+  ProdutoDigital(this.precoBase);
+
+  @override
+  double precoFinal() {
+    return precoBase * 0.9; // Desconto de 10% em produtos digitais
+  }
+}
+
+void mainProduto() {
+  Produto fisico = ProdutoFisico(100.0, 20.0);
+  Produto digital = ProdutoDigital(100.0);
+
+  print("Preço final do Produto Físico: R\$ ${fisico.precoFinal()}");
+  print("Preço final do Produto Digital: R\$ ${digital.precoFinal()}");
+}
+
+3)
+abstract class Notificacao {
+  void enviar(String mensagem);
+}
+
+class Email extends Notificacao {
+  @override
+  void enviar(String mensagem) {
+    print("Enviando email: $mensagem");
+  }
+}
+
+class SMS extends Notificacao {
+  @override
+  void enviar(String mensagem) {
+    print("Enviando SMS: $mensagem");
+  }
+}
+
+void mainNotificacao() {
+  Notificacao email = Email();
+  Notificacao sms = SMS();
+
+  email.enviar("Bem-vindo ao nosso serviço!");
+  sms.enviar("Promoção imperdível para você!");
+}
+
+4)
+abstract class Animal {
+  void alimentar();
+}
+
+class Leao extends Animal {
+  @override
+  void alimentar() {
+    print("O Leão está comendo carne.");
+  }
+}
+
+class Zebra extends Animal {
+  @override
+  void alimentar() {
+    print("A Zebra está comendo grama.");
+  }
+}
+
+void mainAnimal() {
+  Animal leao = Leao();
+  Animal zebra = Zebra();
+
+  leao.alimentar();
+  zebra.alimentar();
+}
+

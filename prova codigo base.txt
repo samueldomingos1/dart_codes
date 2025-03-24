@@ -1,0 +1,88 @@
+
+// Definição da classe abstrata
+abstract class Forma {
+  // Método abstrato (sem implementação)
+  void desenhar();
+  
+  // Método abstrato para cálculo da área
+  double calcularArea();
+}
+
+
+// Subclasse concreta que estende a classe abstrata
+class Circulo extends Forma {
+  double raio;
+
+  Circulo(this.raio);
+  
+  @override
+  void desenhar() {
+    print("Desenhando um círculo com raio $raio.");
+  }
+  
+  @override
+  double calcularArea() {
+    double area = 3.14159 * raio * raio;
+    print("Área do círculo: $area");
+    return area;
+  }
+}
+
+
+// Outra subclasse concreta que estende a classe abstrata
+class Retangulo extends Forma {
+  double comprimento;
+  double altura;
+  
+  Retangulo(this.comprimento, this.altura);
+  
+  @override
+  void desenhar() {
+    print("Desenhando retângulo com largura $comprimento e altura $altura.");
+  }
+  
+  @override
+  double calcularArea() {
+    double area = comprimento * altura;
+    print("Área do retângulo: $area");
+    return area;
+  }
+}
+
+
+// Nova subclasse concreta para Triângulo
+class Triangulo extends Forma {
+  double base;
+  double altura;
+  
+  Triangulo(this.base, this.altura);
+  
+  @override
+  void desenhar() {
+    print("Desenhando triângulo com base $base e altura $altura.");
+  }
+  
+  @override
+  double calcularArea() {
+    double area = (base * altura) / 2;
+    print("Área do triângulo: $area");
+    return area;
+  }
+}
+
+void main() {
+  // Criando instâncias das subclasses
+  Forma circulo = Circulo(5.0);
+  Forma retangulo = Retangulo(10.0, 20.0);
+  Forma triangulo = Triangulo(10.0, 15.0);
+  
+  // Chamando métodos
+  circulo.desenhar();
+  circulo.calcularArea();
+  
+  retangulo.desenhar();
+  retangulo.calcularArea();
+  
+  triangulo.desenhar();
+  triangulo.calcularArea();
+}

@@ -1,0 +1,92 @@
+5)
+abstract class ContaBancaria {
+  double calcularJuros();
+}
+
+class ContaCorrente extends ContaBancaria {
+  @override
+  double calcularJuros() {
+    return 0.0; // Conta corrente não possui juros
+  }
+}
+
+class ContaPoupanca extends ContaBancaria {
+  double saldo;
+
+  ContaPoupanca(this.saldo);
+
+  @override
+  double calcularJuros() {
+    return saldo * 0.05; // Juros de 5%
+  }
+}
+
+void mainContaBancaria() {
+  ContaBancaria corrente = ContaCorrente();
+  ContaBancaria poupanca = ContaPoupanca(1000.0);
+
+  print("Juros da Conta Corrente: R\$ ${corrente.calcularJuros()}");
+  print("Juros da Conta Poupança: R\$ ${poupanca.calcularJuros()}");
+}
+
+6)
+abstract class Produto {
+  double calcularDesconto();
+}
+
+class ProdutoEletronico extends Produto {
+  double precoBase;
+
+  ProdutoEletronico(this.precoBase);
+
+  @override
+  double calcularDesconto() {
+    return precoBase * 0.9; // Desconto de 10%
+  }
+}
+
+class ProdutoVestuario extends Produto {
+  double precoBase;
+
+  ProdutoVestuario(this.precoBase);
+
+  @override
+  double calcularDesconto() {
+    return precoBase * 0.8; // Desconto de 20%
+  }
+}
+
+void mainProdutoDesconto() {
+  Produto eletronico = ProdutoEletronico(200.0);
+  Produto vestuario = ProdutoVestuario(150.0);
+
+  print("Preço com desconto do Produto Eletrônico: R\$ ${eletronico.calcularDesconto()}");
+  print("Preço com desconto do Produto de Vestuário: R\$ ${vestuario.calcularDesconto()}");
+}
+
+7)
+abstract class Veiculo {
+  double calcularAluguel();
+}
+
+class Carro extends Veiculo {
+  @override
+  double calcularAluguel() {
+    return 150.0; // Preço do aluguel para carro
+  }
+}
+
+class Moto extends Veiculo {
+  @override
+  double calcularAluguel() {
+    return 100.0; // Preço do aluguel para moto
+  }
+}
+
+void mainVeiculo() {
+  Veiculo carro = Carro();
+  Veiculo moto = Moto();
+
+  print("Aluguel do Carro: R\$ ${carro.calcularAluguel()}");
+  print("Aluguel da Moto: R\$ ${moto.calcularAluguel()}");
+}
