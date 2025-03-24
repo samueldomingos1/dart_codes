@@ -1,0 +1,41 @@
+1)
+class Pessoa {
+  double _peso;
+  double _altura;
+
+  Pessoa(this._peso, this._altura);
+
+  // Getters e Setters compactados
+  double get peso => _peso;
+  set peso(double peso) => _peso = peso;
+
+  double get altura => _altura;
+  set altura(double altura) => _altura = altura;
+
+  String calcularImc() {
+    double imc = _peso / (_altura * _altura);
+    if (imc < 18.5) {
+      return "IMC: ${imc.toStringAsFixed(2)} - Abaixo do peso";
+    } else if (imc >= 18.5 && imc < 24.9) {
+      return "IMC: ${imc.toStringAsFixed(2)} - Peso normal";
+    } else if (imc >= 25 && imc < 29.9) {
+      return "IMC: ${imc.toStringAsFixed(2)} - Sobrepeso";
+    } else {
+      return "IMC: ${imc.toStringAsFixed(2)} - Obesidade";
+    }
+  }
+}
+
+void main() {
+  // Testando com exemplos
+  var pessoas = [
+    Pessoa(50, 1.6),
+    Pessoa(70, 1.75),
+    Pessoa(85, 1.7),
+    Pessoa(100, 1.8),
+  ];
+
+  for (var i = 0; i < pessoas.length; i++) {
+    print("Pessoa ${i + 1}: ${pessoas[i].calcularImc()}");
+  }
+}
